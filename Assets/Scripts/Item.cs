@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Item
+public class Item : ItemTypes
 {
-    private GameObject itemPrefab;
-    private Sprite inventorySprite;
-    private enum ItemTypes
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private Sprite inventorySprite;
+    [SerializeField] private ItemTypes itemType;
+
+    public string GetItemPrefabName()
     {
-        Cube,
-        Cylinder,
-        Sphere,
-        Capsule
+        return itemPrefab.name;
+    }
+
+    public void AssignItemType(string enumParse)
+    {
+        itemType = (ItemTypes)Enum.Parse(typeof(ItemTypes), enumParse);
+    }
+
+    public ItemTypes GetItemType()
+    {
+        return itemType;
     }
 }

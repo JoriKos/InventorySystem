@@ -7,9 +7,10 @@ public class Inventory
     private Item[] inventory = new Item[5];
 
 
-
-
-
+    public Item GetInvIndex(int index)
+    {
+        return inventory[index];
+    }
 
     public void AddItem(Item itemToAdd)
     {
@@ -17,7 +18,7 @@ public class Inventory
         {
             if (inventory[i] == null)
             {
-                itemToAdd = inventory[i];
+                 inventory[i] = itemToAdd;
                 break;
             }
         }

@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 3168689916691273680}
-  inventorySprite: {fileID: 0}
+  inventoryImage: {fileID: 21300000, guid: a65134fdf84821a42adb53e1a38b8c62, type: 3}

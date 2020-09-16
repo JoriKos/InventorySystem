@@ -8,6 +8,13 @@ public class Player : MonoBehaviour
     private Rigidbody player_rb;
     private float speed = 15f;
     private Item touchedItem;
+    private InventoryUI UI_Inventory;
+
+    private void Awake()
+    {
+        inventory = this.gameObject.GetComponent<Inventory>();
+        UI_Inventory = GameObject.Find("UI_inventory").GetComponent<InventoryUI>();
+    }
 
     private void Update()
     {
@@ -29,15 +36,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "CollectableObject")
+    public void OnCollisionEnter(Collision collision)
+    {   
+        if (collision.gameObject.tag == "CollectableObject")
         {
             touchedItem = collision.gameObject.GetComponent<Item>();
             touchedItem.AssignItemType(touchedItem.GetItemPrefabName());
             inventory.AddItem(touchedItem);
+            UI_Inventory.UpdateInventory(touchedItem);
             Destroy(collision.gameObject);
-            Debug.Log(inventory.GetInvIndex(1));
         }
     }
 }

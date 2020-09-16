@@ -6,7 +6,7 @@ public class ItemTypes : MonoBehaviour
 {
     public enum TypeOfItems
     {
-        Cube,
+        Cube, //0
         Cylinder,
         Sphere,
         Capsule

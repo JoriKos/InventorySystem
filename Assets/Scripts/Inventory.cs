@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory
+public class Inventory : MonoBehaviour
 {
-    private Item[] inventory = new Item[5];
-
+    private Item[] inventory = new Item[4];
 
     public Item GetInvIndex(int index)
     {

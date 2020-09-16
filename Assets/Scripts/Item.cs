@@ -6,8 +6,9 @@ using UnityEngine;
 public class Item : ItemTypes
 {
     [SerializeField] private GameObject itemPrefab;
-    [SerializeField] private Sprite inventorySprite;
-    [SerializeField] private ItemTypes itemType;
+    [SerializeField] private Sprite inventoryImage;
+    private TypeOfItems itemType;
+    private bool isDefined;
 
     public string GetItemPrefabName()
     {
@@ -16,10 +17,23 @@ public class Item : ItemTypes
 
     public void AssignItemType(string enumParse)
     {
-        itemType = (ItemTypes)Enum.Parse(typeof(ItemTypes), enumParse);
+        switch (Enum.IsDefined(typeof(TypeOfItems), enumParse)) //Checks whether or not the given name is in ItemTypes
+        {
+            case true:
+                this.itemType = (TypeOfItems)Enum.Parse(typeof(TypeOfItems), enumParse); //Converts string to enum
+                break;
+            case false:
+                Debug.Log("Critical error: itemType does not exist!");
+                break;
+        }
     }
 
-    public ItemTypes GetItemType()
+    public Sprite GetInventorySprite()
+    {
+        return inventoryImage;
+    }
+
+    public TypeOfItems GetItemType()
     {
         return itemType;
     }

@@ -1224,6 +1224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525a57a1c2115de44a959bde3d85d778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1939452938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,13 +1358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI:
-  - {fileID: 1856860098}
-  - {fileID: 2067112974}
-  - {fileID: 129298402}
   - {fileID: 32306839}
+  - {fileID: 129298402}
+  - {fileID: 2067112974}
+  - {fileID: 1856860098}
   unselectedSlotSprite: {fileID: 21300000, guid: 597330fcb60edad4da2355194cf87dee,
     type: 3}
-  inventory: {fileID: 0}
 --- !u!1 &2067112972
 GameObject:
   m_ObjectHideFlags: 0

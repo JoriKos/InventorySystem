@@ -11,14 +11,21 @@ public class Inventory : MonoBehaviour
         return inventory[index];
     }
 
-    public void AddItem(Item itemToAdd)
+    public void AddItem(Item itemToAdd, int preferredIndex = 0)
     {
-        for (int i = 0; i < inventory.Length; i++)
+        if (inventory[preferredIndex] == null)
         {
-            if (inventory[i] == null)
+            inventory[preferredIndex] = itemToAdd;
+        }
+        else
+        {
+            for (int i = 0; i < inventory.Length; i++)
             {
-                inventory[i] = itemToAdd;
-                break;
+                if (inventory[i] == null)
+                {
+                    inventory[i] = itemToAdd;
+                    break;
+                }
             }
         }
     }

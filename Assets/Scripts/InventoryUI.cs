@@ -57,26 +57,26 @@ public class InventoryUI : MonoBehaviour
                 Debug.Log("Can't do that!");
             }
         }
+
+        for (int i = 0; i < inventoryUI.Length; i++)
+        {
+            if (inventory.GetInvIndex(i) != null)
+            {
+                inventoryUI[i].sprite = inventory.GetInvIndex(i).GetInventorySprite();
+            }
+        }
     }
 
     public void UpdateInventory(Item anItem) //anItem is determined by Player.cs
     {
         if (inventory.GetInvIndex(selectedSlot) == null) //If the currently selected inventory slot is empty, it will go in there
         {
-            inventory.AddItem(anItem);
+            inventory.AddItem(anItem, selectedSlot);
             inventoryUI[selectedSlot].sprite = anItem.GetInventorySprite();
         }
         else //If not, it will determine the next empty slot
         {
-            for (int i = 0; i < 4; i++)
-            {
-                if (inventory.GetInvIndex(i) == null && i != selectedSlot)
-                {
-                    inventory.AddItem(anItem);
-                    inventoryUI[i].sprite = anItem.GetInventorySprite();
-                    break;
-                }
-            }
+            inventory.AddItem(anItem);
         }
     }
 }

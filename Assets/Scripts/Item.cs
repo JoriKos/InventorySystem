@@ -14,6 +14,10 @@ public class Item : ItemTypes
     {
         return itemPrefab.name;
     }
+    public GameObject GetItemPrefab()
+    {
+        return itemPrefab;
+    }
 
     public void AssignItemType(string enumParse)
     {

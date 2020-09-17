@@ -41,10 +41,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "CollectableObject")
         {
             touchedItem = collision.gameObject.GetComponent<Item>();
-            touchedItem.AssignItemType(touchedItem.GetItemPrefabName());
-            inventory.AddItem(touchedItem);
             UI_Inventory.UpdateInventory(touchedItem);
-            Destroy(collision.gameObject);
+            touchedItem.transform.Translate(new Vector3(-10, -10, 0));
         }
     }
 }

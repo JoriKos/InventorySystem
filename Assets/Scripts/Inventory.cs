@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Item[] inventory = new Item[4];
+    [SerializeField] private Item[] inventory = new Item[4];
 
     public Item GetInvIndex(int index)
     {
@@ -17,9 +17,13 @@ public class Inventory : MonoBehaviour
         {
             if (inventory[i] == null)
             {
-                 inventory[i] = itemToAdd;
+                inventory[i] = itemToAdd;
                 break;
             }
         }
+    }
+    public void UseItem(int index)
+    {
+        inventory[index] = null;
     }
 }
